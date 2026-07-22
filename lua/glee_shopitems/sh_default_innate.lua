@@ -1172,6 +1172,21 @@ if SERVER then
     )
 end
 
+if CLIENT then
+    GAMEMODE:RegisterStatusEffect( "chameleon", function( self, owner )
+        if LocalPlayer() ~= owner then return end
+
+        self:Hook( "PreDrawPlayerHands", function()
+                render.SetBlend( 0.5 )
+
+        end )
+        self:Hook( "PostDrawPlayerHands", function()
+                render.SetBlend( 1 )
+
+        end )
+    end )
+
+end
 
 local items = {
     -- this is to give the noobs in a lobby a huge score boost, also it's cool
