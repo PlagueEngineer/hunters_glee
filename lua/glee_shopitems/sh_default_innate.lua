@@ -51,7 +51,7 @@ if SERVER then
 
                 GAMEMODE:Bleed( owner, math.huge )
 
-                owner:SetNW2Bool( "IsBeingWitnessed", true )
+                owner:SetNW2Bool( "glee_fateissealed", true )
                 game.SetTimeScale( 0.4 )
                 util.ScreenShake( owner:GetPos(), 10, 0.1, 3, 5000, true )
                 for _ = 0, 4 do
@@ -291,7 +291,7 @@ if SERVER then
                         attacker.OverrideShootAtThing = nil
                         attacker.ThrowingForceMul = attacker.gleeWitness_OldThrowingForceMul
                         attacker.gleeWitness_OldThrowingForceMul = nil
-                        owner:SetNW2Bool( "IsBeingWitnessed", false )
+                        owner:SetNW2Bool( "glee_fateissealed", false )
 
                     end
                     hook.Remove( "EntityTakeDamage", self.takeDamageHookName )
